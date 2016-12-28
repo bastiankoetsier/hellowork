@@ -4,7 +4,7 @@ FROM golang:1.7-alpine
 RUN apk --update add make curl git
 
 # Set apps home directory.
-ENV APP_DIR /go/src/github.com/hellofresh/hellowork
+ENV APP_DIR ${GOPATH}/src/github.com/italolelis/hellowork
 
 # Creates the application directory
 RUN mkdir -p $APP_DIR
@@ -17,11 +17,9 @@ WORKDIR $APP_DIR
 
 # Build the go binary
 RUN make
-RUN cp out/linux_amd64/hellowork ${GOPATH}/bin
 
 # Clean apk cache
 RUN rm -rf /var/cache/apk/*
 
-EXPOSE 8080
 CMD hellowork
 
