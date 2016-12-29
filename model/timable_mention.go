@@ -1,10 +1,9 @@
-package main
+package model
 
 import (
 	"regexp"
 	"time"
-
-	"github.com/italolelis/hellowork/errors"
+	"errors"
 )
 
 var (
@@ -15,7 +14,7 @@ var (
 )
 
 var (
-	ErrPatternDoestMatch = errors.New(0, "couldn't match a pattern")
+	ErrPatternDoestMatch = errors.New("couldn't match a pattern")
 )
 
 type TimableMention struct {

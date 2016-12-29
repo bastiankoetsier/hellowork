@@ -1,4 +1,4 @@
-package main
+package model
 
 import (
 	"fmt"
@@ -73,7 +73,7 @@ func (u *User) GetStatus() *Status {
 	return u.Statuses[len(u.Statuses) - 1]
 }
 
-func (u *User) isAvailable(date time.Time) bool {
+func (u *User) IsAvailable(date time.Time) bool {
 	var available bool
 	for _, status := range u.Statuses {
 		available = !status.isValid(date)

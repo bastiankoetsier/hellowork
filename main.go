@@ -6,11 +6,12 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/italolelis/hanu"
 	"github.com/italolelis/hellowork/config"
+	"github.com/italolelis/hellowork/cmd"
+	"github.com/italolelis/hellowork/repo"
 )
 
 var (
 	err          error
-	service      *AvailabilityService
 	globalConfig *config.Specification
 )
 
@@ -33,30 +34,23 @@ func init() {
 }
 
 func main() {
-	repo := NewInMemoryRepository()
-	service = NewAvailabilityService(repo)
+	inMemoryRepo := repo.NewInMemory()
 
 	bot, err := hanu.New(globalConfig.SlackToken)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	cmdList := List()
-	for i := 0; i < len(cmdList); i++ {
-		bot.Register(cmdList[i])
+	cmd.Register(cmd.NewHi())
+	cmd.Register(cmd.NewWhereIs(inMemoryRepo))
+
+	cmdList := cmd.List()
+	for _, command := range cmdList {
+		bot.Register(command)
 	}
 
 	bot.Listen()
-	//
-	//bot := slackbot.New("xoxb-121617594615-c1PnnDUCbW3OyB1WZXzr0j9o")
-	//repo := NewInMemoryRepository()
-	//service = NewAvailabilityService(repo, bot.RTM)
-	//
-	//toMe := bot.Messages(slackbot.DirectMessage, slackbot.DirectMention).Subrouter()
-	//toMe.Hear("(?i)(hi|hello).*").MessageHandler(HelloHandler)
-	//bot.Hear("(?i)where is (everybody|everyone)(.*)").MessageHandler(WhereIsEverybodyHandler)
-	//bot.Hear("(?i)where is (.*)").MessageHandler(WhereIsHandler)
-	//
+
 	//bot.Hear("(?i)I'm on (.*)").MessageHandler(ReasonHandler)
 	//bot.Hear("(?i)I'm (.*)").MessageHandler(ReasonHandler)
 	//bot.Run()
