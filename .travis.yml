@@ -1,11 +1,11 @@
 sudo: required
-
-language: go
-
 services:
   - docker
 
+language: go
+
 after_success:
+  - docker build .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" $DOCKER_HOST;
     docker push hello-work-staging/worker;
