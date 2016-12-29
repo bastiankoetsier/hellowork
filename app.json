@@ -1,0 +1,16 @@
+{
+  "name": "Hello Work",
+  "description": "A tiny slack bot to notify your collegues when you are out of the office",
+  "repository": "https://github.com/italolelis/hellowork",
+  "keywords": ["go", "slack", "bot"],
+  "env": {
+    "LOG_LEVEL": {
+      "description": "the log level that you want to use `debug`, `info`, `warning`, `error`",
+      "value": ""
+    },
+    "SLACK_TOKEN": {
+      "description": "access token of your slack bot. You can learn more at https://api.slack.com/bot-users",
+      "value": ""
+    }
+  }
+}
