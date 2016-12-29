@@ -7,7 +7,7 @@ language: go
 after_success:
   - docker build .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.heroku.com;
+    docker login -email="$DOCKER_EMAIL" --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD" registry.heroku.com;
     docker push hello-work-staging/worker;
     fi
 
