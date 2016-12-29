@@ -5,7 +5,7 @@ import "github.com/kelseyhightower/envconfig"
 // Specification for basic configurations
 type Specification struct {
 	LogLevel   string `envconfig:"LOG_LEVEL" default:"info"`
-	SlackToken string `envconfig:"SLACK_TOKEN"`
+	SlackToken string `envconfig:"SLACK_TOKEN" required:"true"`
 }
 
 //LoadEnv loads environment variables
