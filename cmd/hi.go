@@ -8,8 +8,14 @@ func NewHi() *Hi {
 	return &Hi{}
 }
 
-func (s *Hi) Command() string {
-	return "hi"
+func (s *Hi) Commands() []string {
+	return []string{
+		"(hi|hello|hello there)",
+	}
+}
+
+func (s *Hi) Name() string {
+	return "Hi"
 }
 
 func (s *Hi) Description() string {

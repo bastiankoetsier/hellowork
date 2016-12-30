@@ -46,8 +46,16 @@ func NewWhereIs(repo repo.Repository) *WhereIs {
 	return &WhereIs{repo}
 }
 
-func (c *WhereIs) Command() string {
-	return "(?i)where is <user>"
+func (c *WhereIs) Commands() []string {
+	return []string{
+		"(?i)where is <user>(.*?)",
+		"(?i)is <user> around(.*?)",
+		"(?i)is <user> available(.*?)",
+	}
+}
+
+func (c *WhereIs) Name() string {
+	return "Where is"
 }
 
 func (c *WhereIs) Description() string {

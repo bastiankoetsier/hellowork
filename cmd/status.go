@@ -19,8 +19,19 @@ func NewStatus(client *slack.Client, repo repo.Repository) *Status {
 	return &Status{client, repo}
 }
 
-func (s *Status) Command() string {
-	return `(?i)I'm on <status>(.*?)`
+func (s *Status) Commands() []string {
+	return []string{
+		`(?i)I'm on <status>(.*?)`,
+		`(?i)I am on <status>(.*?)`,
+		`(?i)I'll be on <status>(.*?)`,
+		`(?i)I will be on <status>(.*?)`,
+		//`(?i)I'm <status>(.*?)`,
+		//`(?i)I am <status>(.*?)`,
+	}
+}
+
+func (s *Status) Name() string {
+	return "Create status"
 }
 
 func (s *Status) Description() string {
@@ -43,7 +54,6 @@ func (s *Status) Handler(conv hanu.ConversationInterface) {
 	if nil != err {
 		log.Panic(err)
 	}
-
 
 	s.createStatus(slackUser, model.NewStatus("", from, to, model.ParseReason(statusParam)))
 	if timable.HasOnlyFrom() {
