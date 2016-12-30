@@ -7,9 +7,9 @@ import (
 )
 
 var (
-	timablePattern     = regexp.MustCompile(`(?i)(from|since)\s(today|yesterday|tomorrow|next week|next month)\s(until|till|to)\s(today|yesterday|tomorrow|next week|next month)`)
-	fromTimablePattern = regexp.MustCompile(`(?i)(from|since)\s(today|yesterday|tomorrow|next week|next month)`)
-	toTimablePattern   = regexp.MustCompile(`(?i)(until|till|to)\s(today|yesterday|tomorrow|next week|next month)`)
+	timablePattern     = regexp.MustCompile(`(?i)(from|since)\s+(today|yesterday|tomorrow|next week|next month)\s+(until|till|to)\s+(today|yesterday|tomorrow|next week|next month)`)
+	fromTimablePattern = regexp.MustCompile(`(?i)(from|since)\s+(today|yesterday|tomorrow|next week|next month)`)
+	toTimablePattern   = regexp.MustCompile(`(?i)(until|till|to)\s+(today|yesterday|tomorrow|next week|next month)`)
 	defaultPattern     = regexp.MustCompile(`(?i)(today|yesterday|tomorrow|next week|next month)`)
 )
 
