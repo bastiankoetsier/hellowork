@@ -4,9 +4,16 @@ services:
 
 language: go
 
+before_script:
+  - docker build -t italolelis/hellowork .
+  - docker tag italolelis/hellowork italolelis/hellowork:worker
+  - docker tag italolelis/hellowork registry.heroku.com/hello-work-staging/worker
+
 after_success:
-  - docker build -t registry.heroku.com/hello-work-staging/worker .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_HUB_USERNAME" -p="$DOCKER_HUB_PASSWORD";
+    docker push italolelis/hellowork:worker
+
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" registry.heroku.com;
     docker push registry.heroku.com/hello-work-staging/worker;
     fi
