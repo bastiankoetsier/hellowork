@@ -47,7 +47,7 @@ func NewWhereIs(repo repo.Repository) *WhereIs {
 }
 
 func (c *WhereIs) Command() string {
-	return "where is <user>"
+	return "(?i)where is <user>"
 }
 
 func (c *WhereIs) Description() string {
