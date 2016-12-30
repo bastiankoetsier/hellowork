@@ -1,10 +1,10 @@
-hash: 3300395aa6e621880e4977a96dbf36c78592d72090841b04c2aa9acab2594439
-updated: 2016-12-29T16:41:28.202434914+01:00
+hash: a2027cda3abe55bfd2053cc030e5dff7a684c9491c75ac191f572395533796c8
+updated: 2016-12-30T01:44:25.25129852+01:00
 imports:
 - name: github.com/dimfeld/httptreemux
   version: e26f30cd88e1dd9707cb61d74fa5ee6b444fdb85
 - name: github.com/italolelis/hanu
-  version: 3946d5f53c4abc1bd642d0e2b1342a2ae7a230e2
+  version: 0db3521f80693ae7a24ce5e13841f8431ae3e5d4
 - name: github.com/justinas/alice
   version: 052b8b6c18edb9db317af86806d8e00ebaa94160
 - name: github.com/kelseyhightower/envconfig
