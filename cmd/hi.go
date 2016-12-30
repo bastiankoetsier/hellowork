@@ -1,11 +1,18 @@
 package cmd
 
-import "github.com/italolelis/hanu"
+import (
+	"github.com/italolelis/hanu"
+	"math/rand"
+)
 
-type Hi struct{}
+type Hi struct {
+	greetings []string
+}
 
 func NewHi() *Hi {
-	return &Hi{}
+	return &Hi{
+		greetings: []string{"Hi", "Hello", "Hello, good to see you around", "Hey"},
+	}
 }
 
 func (s *Hi) Commands() []string {
@@ -23,5 +30,6 @@ func (s *Hi) Description() string {
 }
 
 func (s *Hi) Handler(conv hanu.ConversationInterface) {
-	conv.Reply("Oh hello!")
+	i := rand.Intn(len(s.greetings))
+	conv.Reply(s.greetings[i])
 }
