@@ -1,15 +1,13 @@
 package: github.com/italolelis/hellowork
 import:
-- package: github.com/dimfeld/httptreemux
-  version: ^3.6.0
 - package: github.com/Sirupsen/logrus
   version: ^0.11.0
 - package: github.com/kelseyhightower/envconfig
   version: ^1.2.0
-- package: github.com/justinas/alice
-  version: ^1.0.0
 - package: github.com/italolelis/hanu
   version: ^0.3.0
+- package: github.com/nlopes/slack
+  version: e595e9d8590a04ff76407e4e7d1791d25b095c66
 testImport:
 - package: github.com/stretchr/testify
   version: ^1.1.4
