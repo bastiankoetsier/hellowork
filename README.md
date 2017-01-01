@@ -53,7 +53,7 @@ This will spin up 3 containers:
 
 - *hellowork-bot* - This is the hellowork slack bot binary
 - *hellowork-api* - This is the hellowork api, here is where the storage of data happens. This code is stored in [this repo](https://github.com/italolelis/hellowork-api)
-- *postgres* - Our datastore of choice
+- *mongodb* - Our datastore of choice
 
 ## Contributing
 
